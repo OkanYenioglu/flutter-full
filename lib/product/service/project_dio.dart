@@ -1,6 +1,6 @@
 import 'package:dio/dio.dart';
 
-class ProjectDio {
+class ProjectDioMixin {
   Dio service = Dio(BaseOptions(baseUrl: 'https://reqres.in/api'));
 }
 

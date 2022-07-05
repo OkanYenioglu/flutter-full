@@ -7,7 +7,7 @@ import 'package:flutter_full/product/service/project_dio.dart';
 import '../model/resource_model.dart';
 import '../view/reqres_view.dart';
 
-abstract class ReqresViewModel extends LoadingStatefull<ReqresView> with ProjectDio {
+abstract class ReqresViewModel extends LoadingStatefull<ReqresView> with ProjectDioMixin {
   late final IReqresService reqresService;
   List<Data> resources = [];
   @override

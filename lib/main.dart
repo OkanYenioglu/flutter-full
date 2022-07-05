@@ -34,6 +34,9 @@ import 'package:flutter_full/demos/colors_life_cycle.dart';
 import 'package:flutter_full/demos/my_collections_demo.dart';
 import 'package:flutter_full/demos/note_demos.dart';
 import 'package:flutter_full/demos/stack_demo_view.dart';
+import 'package:flutter_full/product/global/resource_context.dart';
+import 'package:flutter_full/product/global/theme_notifier.dart';
+import 'package:provider/provider.dart';
 
 import '202/alert_learn.dart';
 import '202/animated_learn.dart';
@@ -50,7 +53,13 @@ import '303/reqrest_resource/view/reqres_view.dart';
 import '303/tabbar_advance.dart';
 
 void main() {
-  runApp(const MyApp());
+  runApp(MultiProvider(
+    providers: [
+      Provider(create: ((_) => ResourceContext())),
+      ChangeNotifierProvider<ThemeNotifier>(create: (context) => ThemeNotifier()),
+    ],
+    builder: (context, child) => const MyApp(),
+  ));
 }
 
 class MyApp extends StatelessWidget {
@@ -61,7 +70,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Flutter Demo',
-      theme: LightTheme().theme,
+      theme: context.watch<ThemeNotifier>().currentTheme,
 
       // ThemeData.dark().copyWith(
       //   bottomAppBarTheme: const BottomAppBarTheme(
