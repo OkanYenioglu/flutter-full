@@ -1,3 +1,5 @@
+import 'package:equatable/equatable.dart';
+
 class UserManagament<T extends AdminUser> {
   final T admin;
 
@@ -14,8 +16,7 @@ class UserManagament<T extends AdminUser> {
 
     int initialValue = admin.role == 1 ? admin.money : 0;
 
-    final sumMoney =
-        users.map((e) => e.money).fold<int>(initialValue, (previousValue, element) => previousValue + element);
+    final sumMoney = users.map((e) => e.money).fold<int>(initialValue, (previousValue, element) => previousValue + element);
     final _money = users.fold<int>(initialValue, (previousValue, element) => previousValue + element.money);
     return _money;
   }
@@ -37,12 +38,20 @@ class VBModel<T> {
   VBModel(this.items);
 }
 
-class GenericUser {
+class GenericUser extends Equatable {
   final String name;
   final String id;
   final int money;
 
   GenericUser(this.name, this.id, this.money);
+
+  bool findUserName(String name) {
+    return this.name == name;
+  }
+
+  @override
+  String toString() => 'GenericUser(name: $name, id: $id, money: $money)';
+  List<Object?> get props => [id];
 }
 
 class AdminUser extends GenericUser {
