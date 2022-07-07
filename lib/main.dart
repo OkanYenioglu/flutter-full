@@ -34,6 +34,7 @@ import 'package:flutter_full/demos/colors_life_cycle.dart';
 import 'package:flutter_full/demos/my_collections_demo.dart';
 import 'package:flutter_full/demos/note_demos.dart';
 import 'package:flutter_full/demos/stack_demo_view.dart';
+import 'package:flutter_full/product/constant/project_items.dart';
 import 'package:flutter_full/product/global/resource_context.dart';
 import 'package:flutter_full/product/global/theme_notifier.dart';
 import 'package:provider/provider.dart';
@@ -48,6 +49,7 @@ import '202/sheet_learn.dart';
 import '202/state_manage/state_manage_learn.dart';
 import '303/callback_learn.dart';
 import '303/feed_view.dart';
+import '303/lottie_learn.dart';
 import '303/part/part_of_learn.dart';
 import '303/reqrest_resource/view/reqres_view.dart';
 import '303/tabbar_advance.dart';
@@ -69,7 +71,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Flutter Demo',
+      title: ProjectItems.projectName,
       theme: context.watch<ThemeNotifier>().currentTheme,
 
       // ThemeData.dark().copyWith(
@@ -106,7 +108,7 @@ class MyApp extends StatelessWidget {
       //       backgroundColor: Colors.transparent,
       //       elevation: 0),
       // ),
-      home: ReqresView(),
+      home: LottieLearn(),
     );
   }
 }

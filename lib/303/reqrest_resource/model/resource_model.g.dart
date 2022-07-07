@@ -24,7 +24,7 @@ Data _$DataFromJson(Map<String, dynamic> json) => Data(
       name: json['name'] as String?,
       year: json['year'] as int?,
       color: json['color'] as String?,
-      pantoneValue: _fetchCustom(json['pantoneValue'] as String),
+      pantoneValue: _fetchCustom(json['pantoneValue'] as String?),
       price: json['price'] as String?,
     );
 
