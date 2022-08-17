@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_full/101/navigate_detail_learn.dart';
 import 'package:flutter_full/demos/my_collections_demo.dart';
 
 import 'image_learn.dart';
+import 'navigate_detail_learn.dart';
 
 class NavigationLearn extends StatefulWidget {
   const NavigationLearn({Key? key}) : super(key: key);
@@ -26,8 +26,7 @@ class _NavigationLearnState extends State<NavigationLearn> with NavigatorManager
       body: ListView.builder(itemBuilder: (context, index) {
         return TextButton(
           onPressed: () async {
-            final response = await navigateToWidgetNormal<bool>(
-                context, NavigateDetailLearnDart(isOkay: selectedItems.contains(index)));
+            final response = await navigateToWidgetNormal<bool>(context, NavigateDetailLearnDart(isOkay: selectedItems.contains(index)));
 
             if (response is bool) {
               addSelected(index, response);

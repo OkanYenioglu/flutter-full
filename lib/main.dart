@@ -11,7 +11,6 @@ import 'package:flutter_full/101/indicator_widget_learn.dart';
 import 'package:flutter_full/101/list_tile_learn.dart';
 import 'package:flutter_full/101/list_view_builder_learn.dart';
 import 'package:flutter_full/101/list_view_learn.dart';
-import 'package:flutter_full/101/navigation_learn.dart';
 import 'package:flutter_full/101/padding_learn.dart';
 import 'package:flutter_full/101/page_view_learn.dart';
 import 'package:flutter_full/101/stack_learn.dart';
@@ -29,6 +28,9 @@ import 'package:flutter_full/202/services/service_post_learn_view.dart';
 import 'package:flutter_full/202/tab_learn.dart';
 import 'package:flutter_full/202/theme/light_theme.dart';
 import 'package:flutter_full/202/theme_learn_view.dart';
+import 'package:flutter_full/303/mobx_image_picker/view/mobx_image_upload_view.dart';
+import 'package:flutter_full/303/navigator/navigate_home_detail_view.dart';
+import 'package:flutter_full/303/navigator/navigator_manager.dart';
 import 'package:flutter_full/demos/color_demos_view.dart';
 import 'package:flutter_full/demos/colors_life_cycle.dart';
 import 'package:flutter_full/demos/my_collections_demo.dart';
@@ -37,6 +39,8 @@ import 'package:flutter_full/demos/stack_demo_view.dart';
 import 'package:flutter_full/product/constant/project_items.dart';
 import 'package:flutter_full/product/global/resource_context.dart';
 import 'package:flutter_full/product/global/theme_notifier.dart';
+import 'package:flutter_full/product/navigator/navigator_custom.dart';
+import 'package:flutter_full/product/navigator/navigator_routes.dart';
 import 'package:provider/provider.dart';
 
 import '202/alert_learn.dart';
@@ -50,6 +54,7 @@ import '202/state_manage/state_manage_learn.dart';
 import '303/callback_learn.dart';
 import '303/feed_view.dart';
 import '303/lottie_learn.dart';
+import '303/navigator/navigate_home_view.dart';
 import '303/part/part_of_learn.dart';
 import '303/reqrest_resource/view/reqres_view.dart';
 import '303/tabbar_advance.dart';
@@ -64,7 +69,7 @@ void main() {
   ));
 }
 
-class MyApp extends StatelessWidget {
+class MyApp extends StatelessWidget with NavigatorCustom {
   const MyApp({Key? key}) : super(key: key);
 
   // This widget is the root of your application.
@@ -108,7 +113,15 @@ class MyApp extends StatelessWidget {
       //       backgroundColor: Colors.transparent,
       //       elevation: 0),
       // ),
-      home: LottieLearn(),
+      onUnknownRoute: (settings) {
+        return MaterialPageRoute(builder: ((context) {
+          return LottieLearn();
+        }));
+      },
+      // routes: NavigatorRoutes().items,
+      onGenerateRoute: onGenerateRoute,
+      navigatorKey: NavigatorManager.instance.navigatorGlobalKey,
+      home: MobxImageUpload(),
     );
   }
 }

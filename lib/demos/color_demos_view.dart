@@ -41,12 +41,9 @@ class _ColorDemosState extends State<ColorDemos> {
       backgroundColor: _backgroundColor,
       bottomNavigationBar: BottomNavigationBar(
         items: [
-          BottomNavigationBarItem(
-              icon: _ColorContainer(color: _ColorUtility()._colorRed), label: _TextTitle()._labelTextRed),
-          BottomNavigationBarItem(
-              icon: _ColorContainer(color: _ColorUtility()._colorYellow), label: _TextTitle()._labelTextYellow),
-          BottomNavigationBarItem(
-              icon: _ColorContainer(color: _ColorUtility()._colorBlue), label: _TextTitle()._labelTextBlue),
+          BottomNavigationBarItem(icon: _ColorContainer(color: _ColorUtility()._colorRed), label: _TextTitle()._labelTextRed),
+          BottomNavigationBarItem(icon: _ColorContainer(color: _ColorUtility()._colorYellow), label: _TextTitle()._labelTextYellow),
+          BottomNavigationBarItem(icon: _ColorContainer(color: _ColorUtility()._colorBlue), label: _TextTitle()._labelTextBlue),
         ],
         onTap: _colorOnTap,
       ),
@@ -55,11 +52,11 @@ class _ColorDemosState extends State<ColorDemos> {
 
   void _colorOnTap(int value) {
     if (value == _MyColors.red.index) {
-      changeBackgroundColor(Colors.red);
+      changeBackgroundColor(_ColorUtility()._colorRed);
     } else if (value == _MyColors.yellow.index) {
-      changeBackgroundColor(Colors.yellow);
+      changeBackgroundColor(_ColorUtility()._colorYellow);
     } else if (value == _MyColors.blue.index) {
-      changeBackgroundColor(Colors.blue);
+      changeBackgroundColor(_ColorUtility()._colorBlue);
     }
   }
 }
