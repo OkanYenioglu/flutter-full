@@ -50,5 +50,9 @@
 	<string>We need to access your library for sharing photo</string>
 	<key>UIViewControllerBasedStatusBarAppearance</key>
 	<false/>
+	<key>NSFileProviderDomainUsageDescription</key>
+	<string>aaa</string>
+	<key>NSPhotoLibraryUsageDescription</key>
+	<string>bb</string>
 </dict>
 </plist>
